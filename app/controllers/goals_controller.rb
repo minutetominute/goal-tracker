@@ -48,6 +48,6 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:body, :is_private)
+    params.require(:goal).permit(:body, :is_private, :is_complete)
   end
 end

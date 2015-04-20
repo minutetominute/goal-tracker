@@ -1,5 +1,7 @@
 <p>
   <%= goal.body %>
+  <%= goal.is_complete ? "Complete" : "Incomplete" %>
+
   <a href="<%= edit_goal_url(goal) %>">Edit goal</a>
   <form action="<%= goal_url(goal) %>" method="post">
     <%= csrf_html %>

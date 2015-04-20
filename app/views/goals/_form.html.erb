@@ -8,7 +8,10 @@
   <% end %>
 
   <label>goal
-    <textarea name="goal[body]" rows="8" cols="40"></textarea>
+    <textarea
+      name="goal[body]"
+      rows="8" cols="40"><%= method == :patch ? goal.body : "" %>
+    </textarea>
   </label>
 
   <label>private?
@@ -17,6 +20,15 @@
       name="goal[is_private]"
       value="true">
   </label>
+
+  <% if method == :patch %>
+  <label>complete?
+    <input type="checkbox"
+      <%= goal.is_complete ? "checked" : "" %>
+      name="goal[is_complete]"
+      value="true">
+  </label>
+  <% end %>
 
   <input type="submit"
     value="<%= method == :patch ? "Edit goal" : "Add goal" %>">

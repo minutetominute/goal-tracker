@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420192500) do
+ActiveRecord::Schema.define(version: 20150420205741) do
 
   create_table "goals", force: :cascade do |t|
-    t.text     "body",       null: false
-    t.integer  "author_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "is_private", null: false
+    t.text     "body",        null: false
+    t.integer  "author_id",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "is_private",  null: false
+    t.boolean  "is_complete", null: false
   end
 
   add_index "goals", ["author_id"], name: "index_goals_on_author_id"

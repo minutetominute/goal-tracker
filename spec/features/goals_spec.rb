@@ -94,4 +94,23 @@ end
 
 feature "goal completion" do
 
+  feature "user adds new goal" do
+
+    scenario "and goal defaults to incomplete" do
+      signed_in_user
+      add_a_goal("finish this app")
+      expect(page).to have_content "Incomplete"
+    end
+
+    scenario "and marks goal as completed" do
+      signed_in_user
+      add_a_goal("finish this app")
+      click_on "Edit goal"
+      check "complete?"
+      click_on "Edit goal"
+      expect(page).to have_content "Complete"
+    end
+
+  end
+
 end
