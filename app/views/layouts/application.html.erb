@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% flash.each do |key, msg| %>
+  <p>
+    <%= msg %>
+  </p>
+<% end %>
+
 <% if logged_in? %>
   <p>
     Hello, <%= current_user.username %>!

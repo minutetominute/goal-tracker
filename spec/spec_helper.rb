@@ -97,3 +97,29 @@ def sign_in_as_testing_username
   fill_in 'password', :with => "biscuits"
   click_on "Sign in"
 end
+
+def sign_up_as_user_two
+  visit new_user_url
+  fill_in 'username', :with => "user_two_name"
+  fill_in 'password', :with => "dogs"
+  click_on "Create User"
+end
+
+def sign_in_as_user_two
+  visit new_session_url
+  fill_in 'username', :with => "use_two_name"
+  fill_in 'password', :with => "dogs"
+  click_on "Sign in"
+end
+
+def signed_in_user
+  sign_up_as_testing_username
+  sign_in_as_testing_username
+end
+
+def add_a_goal(goal_text, is_private = false)
+  visit new_goal_url
+  fill_in "goal", :with => goal_text
+  check('private?') if is_private
+  click_on "Add goal"
+end

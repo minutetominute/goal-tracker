@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :goals,
+    foreign_key: :author_id
 
   after_initialize :ensure_session_token
 

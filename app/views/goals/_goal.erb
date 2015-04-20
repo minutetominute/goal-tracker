@@ -1,0 +1,9 @@
+<p>
+  <%= goal.body %>
+  <a href="<%= edit_goal_url(goal) %>">Edit goal</a>
+  <form action="<%= goal_url(goal) %>" method="post">
+    <%= csrf_html %>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete goal">
+  </form>
+</p>
