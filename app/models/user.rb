@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :username, :password_digest, :session_token, presence: true
+
   has_many :goals,
     foreign_key: :author_id
 

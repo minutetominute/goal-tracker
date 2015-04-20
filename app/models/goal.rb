@@ -1,4 +1,7 @@
 class Goal < ActiveRecord::Base
+  validates :body, :author_id, presence: true
+  validates :is_complete, :is_private, inclusion: { in: [true, false ] }
+
   after_initialize :ensure_privacy, :mark_as_incomplete
 
   belongs_to :author,
