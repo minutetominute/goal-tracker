@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<% if logged_in? %>
+  <p>
+    Hello, <%= current_user.username %>!
+  </p>
+  <form action="<%= session_url %>" method="post">
+    <%= csrf_html %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log out">
+  </form>
+<% end %>
+
 <%= yield %>
 
 </body>
